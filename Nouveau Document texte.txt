@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI DROPSHIP KIT | Lance ton business avec l'IA</title>
+
+    <meta name="description"
+        content="AI DROPSHIP KIT : prompts IA, guides, templates et outils pour organiser ton projet de dropshipping avec l'intelligence artificielle.">
+
+    <style>
+        /* =========================
+           VARIABLES
+        ========================== */
+
+        :root {
+            --black: #050505;
+            --black2: #0d0d0d;
+            --black3: #151515;
+            --gold: #d4af37;
+            --gold-light: #f5d76e;
+            --white: #ffffff;
+            --gray: #a5a5a5;
+            --border: rgba(212, 175, 55, 0.35);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* =========================
+           GLOBAL
+        ========================== */
+
+        .container {
+            width: min(1150px, 90%);
+            margin: auto;
+        }
+
+        .gold {
+            color: var(--gold-light);
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .section-title span {
+            color: var(--gold-light);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            max-width: 650px;
+            margin: 0 auto 55px;
+            line-height: 1.7;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 28px;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: #050505;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 35px rgba(212, 175, 55, 0.5);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--gold);
+            color: var(--gold-light);
+            margin-left: 10px;
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: black;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(5, 5, 5, 0.92);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--gold-light);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ddd;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-light);
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 27px;
+            cursor: pointer;
+            color: var(--gold-light);
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: rgba(212, 175, 55, 0.08);
+            filter: blur(100px);
+            border-radius: 50%;
+            right: -200px;
+            top: 100px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 14px;
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            color: var(--gold-light);
+            font-size: 13px;
+            margin-bottom: 20px;
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 6vw, 75px);
+            line-height: 0.98;
+            margin-bottom: 25px;
+            font-weight: 900;
+        }
+
+        .hero h1 span {
+            color: var(--gold-light);
+        }
+
+        .hero p {
+            color: #bdbdbd;
+            line-height: 1.7;
+            font-size: 18px;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .hero-small {
+            color: #777;
+            font-size: 13px;
+            margin-top: 20px;
+        }
+
+        /* =========================
+           DIGITAL PRODUCT MOCKUP
+        ========================== */
+
+        .product-area {
+            display: flex;
+            justify-content: center;
+            perspective: 1000px;
+        }
+
+        .product-box {
+            width: 340px;
+            min-height: 400px;
+            border: 1px solid rgba(245, 215, 110, 0.5);
+            border-radius: 25px;
+            padding: 35px;
+            position: relative;
+            background:
+                radial-gradient(circle at top right, rgba(212,175,55,.2), transparent 35%),
+                linear-gradient(145deg, #171717, #050505);
+            box-shadow:
+                0 0 70px rgba(212, 175, 55, 0.12),
+                inset 0 0 50px rgba(255,255,255,0.02);
+            transform: rotateY(-8deg) rotateX(3deg);
+            transition: 0.5s;
+        }
+
+        .product-box:hover {
+            transform: rotateY(0deg) rotateX(0deg) translateY(-10px);
+        }
+
+        .product-icon {
+            width: 85px;
+            height: 85px;
+            border: 2px solid var(--gold);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+            margin-bottom: 35px;
+            box-shadow: 0 0 30px rgba(212,175,55,.15);
+        }
+
+        .product-box h2 {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .product-box h2 span {
+            color: var(--gold-light);
+        }
+
+        .product-box p {
+            color: var(--gray);
+            line-height: 1.6;
+            font-size: 15px;
+            margin-bottom: 30px;
+        }
+
+        .product-list {
+            list-style: none;
+        }
+
+        .product-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #242424;
+            color: #ddd;
+            font-size: 14px;
+        }
+
+        .product-list li::before {
+            content: "✓";
+            color: var(--gold-light);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        /* =========================
+           CARDS
+        ========================== */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            background: linear-gradient(145deg, #111, #080808);
+            border: 1px solid #252525;
+            border-radius: 16px;
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--gold);
+            transform: translateY(-7px);
+            box-shadow: 0 15px 40px rgba(212,175,55,.08);
+        }
+
+        .card-icon {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .card p {
+            color: var(--gray);
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* =========================
+           CONTENT
+        ========================== */
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .check-list {
+            list-style: none;
+        }
+
+        .check-list li {
+            padding: 17px;
+            margin-bottom: 10px;
+            background: #0d0d0d;
+            border: 1px solid #202020;
+            border-radius: 10px;
+            color: #ddd;
+        }
+
+        .check-list li::before {
+            content: "✓";
+            color: var(--gold-light);
+            font-weight: bold;
+            margin-right: 12px;
+        }
+
+        .dashboard {
+            background: #0b0b0b;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 20px 60px rgba(0,0,0,.5);
+        }
+
+        .dashboard-top {
+            display: flex;
+            gap: 7px;
+            margin-bottom: 25px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #444;
+        }
+
+        .fake-screen {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .screen-card {
+            min-height: 120px;
+            border: 1px solid #292929;
+            border-radius: 12px;
+            padding: 20px;
+            background: #111;
+        }
+
+        .screen-card strong {
+            color: var(--gold-light);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .screen-card small {
+            color: #888;
+        }
+
+        /* =========================
+           STEPS
+        ========================== */
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .step {
+            text-align: center;
+            padding: 40px 25px;
+            background: #0d0d0d;
+            border: 1px solid #252525;
+            border-radius: 18px;
+        }
+
+        .step-number {
+            font-size: 50px;
+            font-weight: 900;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .step h3 {
+            margin-bottom: 12px;
+        }
+
+        .step p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* =========================
+           PRICE
+        ========================== */
+
+        .price-section {
+            background:
+                radial-gradient(circle at center, rgba(212,175,55,.08), transparent 50%),
+                #080808;
+        }
+
+        .price-card {
+            max-width: 550px;
+            margin: auto;
+            text-align: center;
+            padding: 50px;
+            border: 1px solid var(--gold);
+            border-radius: 25px;
+            background: linear-gradient(145deg, #151515, #080808);
+            box-shadow: 0 0 70px rgba(212,175,55,.08);
+        }
+
+        .price-card h3 {
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        .old-price {
+            color: #777;
+            text-decoration: line-through;
+            font-size: 22px;
+        }
+
+        .price {
+            font-size: 65px;
+            font-weight: 900;
+            color: var(--gold-light);
+            margin: 5px 0 15px;
+        }
+
+        .price-list {
+            list-style: none;
+            text-align: left;
+            margin: 30px 0;
+        }
+
+        .price-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #252525;
+            color: #ddd;
+        }
+
+        .price-list li::before {
+            content: "✓";
+            color: var(--gold-light);
+            margin-right: 10px;
+        }
+
+        /* =========================
+           REVIEWS
+        ========================== */
+
+        .review {
+            position: relative;
+        }
+
+        .stars {
+            color: var(--gold-light);
+            margin-bottom: 15px;
+        }
+
+        .review p {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .review small {
+            color: var(--gold-light);
+        }
+
+        /* =========================
+           FAQ
+        ========================== */
+
+        .faq {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #292929;
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            color: white;
+            text-align: left;
+            padding: 22px 0;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.4s;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-bottom: 20px;
+        }
+
+        .faq-question span {
+            color: var(--gold-light);
+            font-size: 24px;
+        }
+
+        /* =========================
+           CONTACT
+        ========================== */
+
+        .contact-box {
+            text-align: center;
+            padding: 70px 30px;
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            background:
+                radial-gradient(circle at center, rgba(212,175,55,.08), transparent 55%),
+                #0c0c0c;
+        }
+
+        .contact-number {
+            font-size: 40px;
+            color: var(--gold-light);
+            font-weight: bold;
+            margin: 25px 0;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            padding: 50px 0;
+            border-top: 1px solid #222;
+            background: #030303;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .footer-text {
+            color: #777;
+            font-size: 13px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            color: #999;
+            font-size: 13px;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-light);
+        }
+
+        /* =========================
+           ANIMATION
+        ========================== */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 0.8s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                padding: 25px;
+                background: #080808;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero-grid,
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                text-align: center;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .product-area {
+                margin-top: 40px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .section {
+                padding: 70px 0;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .btn {
+                width: 100%;
+                margin: 5px 0;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+            }
+
+            .product-box {
+                width: 100%;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .fake-screen {
+                grid-template-columns: 1fr;
+            }
+
+            .price-card {
+                padding: 30px 20px;
+            }
+
+            .price {
+                font-size: 50px;
+            }
+
+            .contact-number {
+                font-size: 28px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+        <div class="container">
+            <nav>
+
+                <a href="#accueil" class="logo">
+                    AI <span>DROPSHIP KIT</span>
+                </a>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#kit">Le Kit</a></li>
+                    <li><a href="#fonctionnement">Comment ça marche</a></li>
+                    <li><a href="#avis">Avis</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+
+                <a href="#prix" class="btn btn-gold">
+                    OBTENIR LE KIT
+                </a>
+
+                <div class="menu-btn" onclick="toggleMenu()">
+                    ☰
+                </div>
+
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <main>
+
+        <section class="hero" id="accueil">
+
+            <div class="container">
+
+                <div class="hero-grid">
+
+                    <div class="reveal">
+
+                        <div class="badge">
+                            🤖 PRODUIT 100% DIGITAL
+                        </div>
+
+                        <h1>
+                            TRANSFORME
+                            <span>L'IA</span>
+                            EN TON ASSISTANT DROPSHIPPING
+                        </h1>
+
+                        <p>
+                            Trouve des idées, analyse tes produits,
+                            crée tes publicités et organise ton lancement
+                            grâce à un seul kit digital.
+                        </p>
+
+                        <a href="#prix" class="btn btn-gold">
+                            🚀 OBTENIR LE KIT
+                        </a>
+
+                        <a href="#kit" class="btn btn-outline">
+                            DÉCOUVRIR LE KIT
+                        </a>
+
+                        <div class="hero-small">
+                            ✓ Aucun produit physique &nbsp; • &nbsp;
+                            ✓ Paiement unique &nbsp; • &nbsp;
+                            ✓ Compatible ordinateur et téléphone
+                        </div>
+
+                    </div>
+
+
+                    <div class="product-area reveal">
+
+                        <div class="product-box">
+
+                            <div class="product-icon">
+                                🤖
+                            </div>
+
+                            <h2>
+                                AI <span>DROPSHIP KIT</span>
+                            </h2>
+
+                            <p>
+                                Ton kit digital pour utiliser
+                                l'intelligence artificielle dans
+                                ton projet dropshipping.
+                            </p>
+
+                            <ul class="product-list">
+
+                                <li>100+ prompts IA</li>
+                                <li>Guides dropshipping</li>
+                                <li>Templates publicitaires</li>
+                                <li>Calculateur de marge</li>
+                                <li>Checklist de lancement</li>
+                                <li>Bonus marketing</li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             AVANTAGES
+        ========================== -->
+
+        <section class="section" id="kit">
+
+            <div class="container">
+
+                <h2 class="section-title">
+                    Pourquoi choisir <span>AI DROPSHIP KIT ?</span>
+                </h2>
+
+                <p class="section-subtitle">
+                    Un ensemble de ressources digitales pour t'aider
+                    à structurer ton projet de dropshipping avec l'IA.
+                </p>
+
+                <div class="cards">
+
+                    <div class="card reveal">
+                        <div class="card-icon">🤖</div>
+                        <h3>IA POUR GAGNER DU TEMPS</h3>
+                        <p>
+                            Utilise des prompts prêts à l'emploi
+                            pour accélérer certaines tâches.
+                        </p>
+                    </div>
+
+                    <div class="card reveal">
+                        <div class="card-icon">🔎</div>
+                        <h3>RECHERCHE PRODUIT</h3>
+                        <p>
+                            Structure tes recherches et analyse
+                            tes différentes idées de produits.
+                        </p>
+                    </div>
+
+                    <div class="card reveal">
+                        <div class="card-icon">📢</div>
+                        <h3>PUBLICITÉS</h3>
+                        <p>
+                            Crée des concepts de publicités pour
+                            TikTok, Instagram et autres plateformes.
+                        </p>
+                    </div>
+
+                    <div class="card reveal">
+                        <div class="card-icon">📈</div>
+                        <h3>ORGANISATION</h3>
+                        <p>
+                            Utilise une checklist pour suivre les
+                            différentes étapes de ton lancement.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONTENU
+        ========================== -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="content-grid">
+
+                    <div class="reveal">
+
+                        <h2 class="section-title" style="text-align:left;">
+                            Tout ce qu'il te faut dans
+                            <span>un seul kit.</span>
+                        </h2>
+
+                        <p class="section-subtitle" style="text-align:left;">
+                            Le AI DROPSHIP KIT rassemble plusieurs
+                            ressources numériques dans une seule offre.
+                        </p>
+
+                        <ul class="check-list">
+
+                            <li>100+ prompts IA pour le dropshipping</li>
+                            <li>Guide de recherche de produits</li>
+                            <li>Méthode d'analyse de produit</li>
+                            <li>Prompts pour publicités TikTok</li>
+                            <li>Prompts pour publicités Instagram</li>
+                            <li>Templates de fiches produits</li>
+                            <li>Calculateur de marge</li>
+                            <li>Checklist de lancement</li>
+                            <li>Bonus : bibliothèque de prompts marketing</li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="dashboard reveal">
+
+                        <div class="dashboard-top">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+
+                        <div class="fake-screen">
+
+                            <div class="screen-card">
+                                <strong>🤖 PROMPTS IA</strong>
+                                <small>
+                                    Trouve des idées et génère du contenu.
+                                </small>
+                            </div>
+
+                            <div class="screen-card">
+                                <strong>🔎 PRODUITS</strong>
+                                <small>
+                                    Organise tes recherches.
+                                </small>
+                            </div>
+
+                            <div class="screen-card">
+                                <strong>📢 ADS</strong>
+                                <small>
+                                    Prépare tes concepts publicitaires.
+                                </small>
+                            </div>
+
+                            <div class="screen-card">
+                                <strong>📊 MARGE</strong>
+                                <small>
+                                    Calcule tes coûts et ta marge.
+                                </small>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             POUR QUI
+        ========================== -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <h2 class="section-title">
+                    Le kit est fait pour <span>toi si...</span>
+                </h2>
+
+                <p class="section-subtitle">
+                    Plusieurs profils peuvent utiliser ces ressources
+                    pour organiser leur travail.
+                </p>
+
+                <div class="cards">
+
+                    <div class="card reveal">
+                        <div class="card-icon">🧑‍💻</div>
+                        <h3>Débutants</h3>
+                        <p>
+                            Tu souhaites découvrir le dropshipping
+                            et l'utilisation de l'IA.
+                        </p>
+                    </div>
+
+                    <div class="card reveal">
+                        <div class="card-icon">📱</div>
+                        <h3>Créateurs</h3>
+                        <p>
+                            Tu veux générer plus rapidement
+                            des idées de contenu.
+                        </p>
+                    </div>
+
+                    <div class="card reveal">
+                        <div class="card-icon">🛍️</div>
+                        <h3>Entrepreneurs</h3>
+                        <p>
+                            Tu veux mieux organiser tes recherches
+                            et tes idées de produits.
+                        </p>
+                    </div>
+
+                    <div class="card reveal">
+                        <div class="card-icon">⚡</div>
+                        <h3>Fans d'IA</h3>
+                        <p>
+                            Tu souhaites utiliser davantage
+                            l'intelligence artificielle.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             COMMENT ÇA MARCHE
+        ========================== -->
+
+        <section class="section" id="fonctionnement">
+
+            <div class="container">
+
+                <h2 class="section-title">
+                    Comment ça <span>marche ?</span>
+                </h2>
+
+                <p class="section-subtitle">
+                    Trois étapes simples pour commander ton produit digital.
+                </p>
+
+                <div class="steps">
+
+                    <div class="step reveal">
+
+                        <div class="step-number">
+                            01
+                        </div>
+
+                        <h3>COMMANDE</h3>
+
+                        <p>
+                            Contacte-nous pour commander ton
+                            AI DROPSHIP KIT.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step reveal">
+
+                        <div class="step-number">
+                            02
+                        </div>
+
+                        <h3>PAIEMENT</h3>
+
+                        <p>
+                            Effectue ton paiement selon les
+                            modalités proposées.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step reveal">
+
+                        <div class="step-number">
+                            03
+                        </div>
+
+                        <h3>REÇOIS TON KIT</h3>
+
+                        <p>
+                            Après confirmation, tu reçois les
+                            informations nécessaires pour accéder
+                            à ton produit digital.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PRIX
+        ========================== -->
+
+        <section class="section price-section" id="prix">
+
+            <div class="container">
+
+                <h2 class="section-title">
+                    Lance-toi avec <span>AI DROPSHIP KIT</span>
+                </h2>
+
+                <p class="section-subtitle">
+                    Un achat unique pour accéder aux ressources
+                    incluses dans le kit.
+                </p>
+
+                <div class="price-card reveal">
+
+                    <h3>AI DROPSHIP KIT</h3>
+
+                    <div class="old-price">
+                        299 DH
+                    </div>
+
+                    <div class="price">
+                        149 DH
+                    </div>
+
+                    <p style="color:#888;">
+                        Paiement unique
+                    </p>
+
+                    <ul class="price-list">
+
+                        <li>100+ prompts IA</li>
+                        <li>Guides dropshipping</li>
+                        <li>Templates publicitaires</li>
+                        <li>Templates fiches produits</li>
+                        <li>Calculateur de marge</li>
+                        <li>Checklist de lancement</li>
+                        <li>Bonus marketing</li>
+
+                    </ul>
+
+                    <a
+                        class="btn btn-gold"
+                        style="width:100%;"
+                        href="https://wa.me/212615302343?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20AI%20DROPSHIP%20KIT%20%C3%A0%20149%20DH."
+                        target="_blank"
+                    >
+                        🚀 JE VEUX LE KIT
+                    </a>
+
+                    <p style="margin-top:18px;color:#777;font-size:13px;">
+                        Aucun abonnement • Produit 100% digital
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             AVIS
+        ========================== -->
+
+        <section class="section" id="avis">
+
+            <div class="container">
+
+                <h2 class="section-title">
+                    Ce que nos <span>clients pourraient apprécier</span>
+                </h2>
+
+                <p class="section-subtitle">
+                    Exemples de présentation : remplace-les par de vrais
+                    avis clients après tes premières ventes.
+                </p>
+
+                <div class="cards">
+
+                    <div class="card review reveal">
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+                        <p>
+                            « Le kit m'a permis de mieux organiser mes
+                            idées et mes recherches. »
+                        </p>
+
+                        <small>
+                            — Exemple client
+                        </small>
+
+                    </div>
+
+
+                    <div class="card review reveal">
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+                        <p>
+                            « Les prompts sont pratiques pour commencer
+                            à travailler avec l'IA. »
+                        </p>
+
+                        <small>
+                            — Exemple client
+                        </small>
+
+                    </div>
+
+
+                    <div class="card review reveal">
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+                        <p>
+                            « J'aime le fait que toutes les ressources
+                            soient regroupées au même endroit. »
+                        </p>
+
+                        <small>
+                            — Exemple client
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FAQ
+        ========================== -->
+
+        <section class="section" id="faq">
+
+            <div class="container">
+
+                <h2 class="section-title">
+                    Questions <span>fréquentes</span>
+                </h2>
+
+                <div class="faq">
+
+                    <div class="faq-item">
+
+                        <button class="faq-question">
+                            Le produit est-il physique ?
+                            <span>+</span>
+                        </button>
+
+                        <div class="faq-answer">
+                            Non. AI DROPSHIP KIT est un produit
+                            entièrement digital.
+                        </div>
+
+                    </div>
+
+
+                    <div class="faq-item">
+
+                        <button class="faq-question">
+                            Est-ce que je reçois un colis ?
+                            <span>+</span>
+                        </button>
+
+                        <div class="faq-answer">
+                            Non. Il n'y a aucun produit physique
+                            à expédier.
+                        </div>
+
+                    </div>
+
+
+                    <div class="faq-item">
+
+                        <button class="faq-question">
+                            Est-ce adapté aux débutants ?
+                            <span>+</span>
+                        </button>
+
+                        <div class="faq-answer">
+                            Oui. Le contenu est organisé pour être
+                            accessible aux personnes qui débutent.
+                        </div>
+
+                    </div>
+
+
+                    <div class="faq-item">
+
+                        <button class="faq-question">
+                            Est-ce un abonnement ?
+                            <span>+</span>
+                        </button>
+
+                        <div class="faq-answer">
+                            Non. Le prix affiché correspond à un
+                            achat unique.
+                        </div>
+
+                    </div>
+
+
+                    <div class="faq-item">
+
+                        <button class="faq-question">
+                            Comment commander ?
+                            <span>+</span>
+                        </button>
+
+                        <div class="faq-answer">
+                            Clique sur un bouton de commande ou contacte-nous
+                            directement sur WhatsApp au 0615302343.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONTACT
+        ========================== -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="contact-box reveal">
+
+                    <h2 class="section-title">
+                        Une <span>question ?</span>
+                    </h2>
+
+                    <p style="color:#aaa;">
+                        Contacte-nous directement pour obtenir
+                        plus d'informations sur le kit.
+                    </p>
+
+                    <div class="contact-number">
+                        0615302343
+                    </div>
+
+                    <a
+                        href="https://wa.me/212615302343?text=Bonjour%2C%20je%20souhaite%20avoir%20plus%20d%27informations%20sur%20le%20AI%20DROPSHIP%20KIT."
+                        target="_blank"
+                        class="btn btn-gold"
+                    >
+                        💬 CONTACTER SUR WHATSAPP
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div>
+
+                    <div class="logo">
+                        AI <span>DROPSHIP KIT</span>
+                    </div>
+
+                    <div class="footer-text" style="margin-top:10px;">
+                        Lance ton business avec l'IA.
+                    </div>
+
+                </div>
+
+
+                <div class="footer-links">
+
+                    <a href="#accueil">Accueil</a>
+                    <a href="#kit">Le Kit</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#prix">Commander</a>
+
+                </div>
+
+
+                <div class="footer-text">
+                    © 2026 AI DROPSHIP KIT
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /* MENU MOBILE */
+
+        function toggleMenu() {
+
+            const menu = document.getElementById("navLinks");
+
+            menu.classList.toggle("active");
+
+        }
+
+
+        /* FAQ */
+
+        const faqQuestions =
+            document.querySelectorAll(".faq-question");
+
+        faqQuestions.forEach(question => {
+
+            question.addEventListener("click", () => {
+
+                const item = question.parentElement;
+
+                item.classList.toggle("active");
+
+                const symbol =
+                    question.querySelector("span");
+
+                if (item.classList.contains("active")) {
+                    symbol.textContent = "−";
+                } else {
+                    symbol.textContent = "+";
+                }
+
+            });
+
+        });
+
+
+        /* ANIMATION AU SCROLL */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+        const observer =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("show");
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+        revealElements.forEach(element => {
+
+            observer.observe(element);
+
+        });
+
+
+        /* FERMER LE MENU MOBILE APRÈS UN CLIC */
+
+        document.querySelectorAll(".nav-links a")
+            .forEach(link => {
+
+                link.addEventListener("click", () => {
+
+                    document
+                        .getElementById("navLinks")
+                        .classList.remove("active");
+
+                });
+
+            });
+
+    </script>
+
+</body>
+</html>
